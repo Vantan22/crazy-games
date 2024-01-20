@@ -1,0 +1,32 @@
+.vs-button__content {
+  padding: 8px 16px;
+}
+
+.vs-sidebar__item{
+  opacity: 1 !important;
+  color: white;
+  &:hover {
+      opacity: 0.7!important;
+  }
+}
+.vs-sidebar__item:after {
+  border-radius: 0;
+}
+.vs-sidebar-content.reduce .vs-sidebar__item,.vs-sidebar__item__icon {
+  min-height: 34px !important;
+  height: 34px!important;
+}
+
+.vs-sidebar-content {
+  height: 100%;
+}
+
+.vs-sidebar
+{
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  &:hover {
+    overflow-y: auto;
+  }
+}
