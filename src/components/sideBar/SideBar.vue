@@ -67,11 +67,17 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@import "@/assets/style/scss/_config_variables.scss";
 .sidebar {
   height: calc(100vh - 60px);
   position: fixed;
   width: 100%;
   max-width: 200px;
+  z-index: 100;
+
+  &:hover {
+    z-index: 100000000000000000000;
+  }
 
   &__content {
     height: 100%;
@@ -86,6 +92,7 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 200px;
+  border-right: 0.5px solid $light_grey;
 }
 
 .divider {

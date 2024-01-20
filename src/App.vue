@@ -14,6 +14,6 @@ export default {
   font-family: "Nunito", sans-serif;
 }
 body {
-  //background: #0c0d14;
+  background: #0c0d14;
 }
 </style>
