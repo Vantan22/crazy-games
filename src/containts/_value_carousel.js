@@ -107,5 +107,5 @@ export const data = [
     url: "/",
     name: "tengame",
     videoSource: video,
-  }, // Add more items as needed ],
+  },
 ];
