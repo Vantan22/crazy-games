@@ -51,7 +51,7 @@ export default {
 
   &__thumbnail {
     height: 40px;
-    width: 50px;
+    width: 60px;
     object-fit: cover;
   }
 
