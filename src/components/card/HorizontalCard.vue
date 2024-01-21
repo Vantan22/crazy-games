@@ -104,7 +104,7 @@ export default {
 
 .card-container {
   position: relative;
-  //width: fit-content;
+  width: fit-content;
   height: max-content;
 }
 
