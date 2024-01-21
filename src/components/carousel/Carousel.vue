@@ -14,9 +14,9 @@
             <horizontal-card
               v-for="subItem in item"
               :key="subItem.id"
-              video-source=""
-              :image-source="subItem.image"
-              :name="subItem.caption"
+              :video-source="subItem.videoSource"
+              :image-source="subItem.imageSource"
+              :name="subItem.name"
               :url="subItem.url"
             />
           </div>
@@ -25,9 +25,9 @@
           <div>
             <horizontal-card
               size="medium"
-              video-source=""
-              :image-source="item.image"
-              :name="item.caption"
+              :video-source="item.videoSource"
+              :image-source="item.imageSource"
+              :name="item.name"
               :url="item.url"
             />
           </div>
@@ -38,7 +38,7 @@
       <i class="bx bx-chevron-left"></i>
     </button>
     <button
-      v-if="currentIndex < carouselItems.length - 1"
+      v-if="currentIndex < data.length - 1"
       @click="nextSlide"
       class="next-button"
     >
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { data } from "@/containts/_value_carousel";
 import HorizontalCard from "@/components/card/HorizontalCard.vue";
 
 export default {
@@ -58,6 +59,7 @@ export default {
       translateValue: 0,
       currentIndex: 0,
       itemsPerSlide: 5,
+      data,
       carouselItems: [
         {
           id: 1,
@@ -140,19 +142,19 @@ export default {
     carouselItemsMap() {
       const result = [];
       let tempGroup = [];
-      for (let i = 0; i < this.carouselItems.length; i++) {
+      for (let i = 0; i < this.data.length; i++) {
         if (i % 5 === 0) {
           // Bắt đầu một nhóm mới
-          const newItem = { ...this.carouselItems[i] };
+          const newItem = { ...this.data[i] };
           result.push(newItem);
           tempGroup = [];
         } else {
           // Thêm đối tượng vào nhóm tạm thời
-          tempGroup.push({ ...this.carouselItems[i] });
+          tempGroup.push({ ...this.data[i] });
         }
 
         // Nếu đến phần tử cuối cùng hoặc đến phần tử cuối cùng của một nhóm
-        if (i === this.carouselItems.length - 1 || (i + 1) % 5 === 0) {
+        if (i === this.data.length - 1 || (i + 1) % 5 === 0) {
           if (tempGroup.length > 0) {
             result.push([...tempGroup]);
           }
@@ -169,7 +171,7 @@ export default {
       }
     },
     nextSlide() {
-      if (this.currentIndex < this.carouselItems.length - 1) {
+      if (this.currentIndex < this.data.length - 1) {
         this.currentIndex++;
         this.translateValue -= this.slideWidth() - 38;
       }

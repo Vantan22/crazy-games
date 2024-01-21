@@ -26,7 +26,7 @@ export const menu_function = [
   },
   {
     name: "Originals",
-    link: "/original",
+    link: "/originals",
     icon: "bx bxs-florist",
   },
   {

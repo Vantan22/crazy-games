@@ -36,7 +36,7 @@
 import HorizontalCard from "@/components/card/HorizontalCard.vue";
 
 export default {
-  name: "local-carousel",
+  name: "local-carousel-with-tag",
   components: { HorizontalCard },
   props: {
     title: {

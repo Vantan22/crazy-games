@@ -6,34 +6,18 @@
       class="main-content-container"
       :class="{ 'show-sidebar': isShowSideBar }"
     >
-      <local-carousel />
-      <local-carousel-with-tag title="Featured games" :data="data" />
-      <local-carousel-with-tag title="New games" :data="data" />
-      <local-carousel-vertical title="hello fau taen" :data="data" />
-      <local-carousel-with-tag
-        v-for="item in array_test"
-        :key="item"
-        :title="'New games' + item"
-        :data="data"
-      />
+      <router-view />
     </div>
   </div>
 </template>
 <script>
 import HeaderNav from "@/components/header/Header.vue";
 import SideBar from "@/components/sideBar/SideBar.vue";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import LocalCarousel from "@/components/carousel/Carousel.vue";
-import LocalCarouselWithTag from "@/components/carousel/CarouselWithTag.vue";
 import { data } from "@/containts/_value_carousel";
-import LocalCarouselVertical from "@/components/carousel/CarouselWithTagVertical.vue";
 
 export default {
   name: "HomeLayout",
   components: {
-    LocalCarouselVertical,
-    LocalCarouselWithTag,
-    LocalCarousel,
     SideBar,
     HeaderNav,
   },
@@ -52,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .main-content-container {
   width: 100%;
-  height: 2000px;
+  height: 100%;
   margin-left: 0;
   padding: 0 0 20px 0;
 
