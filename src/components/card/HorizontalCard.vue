@@ -64,11 +64,9 @@ export default {
     },
     width: {
       type: String,
-      default: "250px",
     },
     height: {
       type: String,
-      default: "140px",
     },
   },
   computed: {
