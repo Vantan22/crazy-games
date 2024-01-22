@@ -1,14 +1,13 @@
 <template>
   <div class="search">
-    <div class="search-box" :class="{ active: searchQuery }">
+    <div class="search-box" ref="searchRef">
       <input
         class="search-box__input"
         type="text"
         v-model="searchQuery"
         placeholder="Search"
-        @blur="handleBlur"
       />
-      <div class="search-box__icon">
+      <div class="search-box__icon" @click="handleSearch">
         <img src="@/assets/images/icon/ic_search.svg" alt="" />
       </div>
     </div>
@@ -85,8 +84,22 @@ export default {
       isMobile: false,
     };
   },
+  mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.handleClickOutside);
+  },
   methods: {
-    handleBlur() {
+    handleClickOutside(event) {
+      const searchElement = this.$refs.searchRef;
+      if (searchElement && !searchElement.contains(event.target)) {
+        this.searchQuery = "";
+      }
+    },
+    handleSearch() {
+      console.log(this.searchQuery);
+      this.$router.push(`/search?q=${this.searchQuery}`);
       this.searchQuery = "";
     },
   },
