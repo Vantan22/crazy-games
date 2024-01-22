@@ -31,7 +31,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding-right: 5px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   opacity: 1;
   text-transform: uppercase;

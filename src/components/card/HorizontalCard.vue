@@ -6,6 +6,7 @@
       :class="{
         'medium-card': isMedium,
       }"
+      :style="[{ width: width }, { height: height }]"
       @click="goToPage"
       @mouseenter="isHovered = true"
       @mouseleave="isHovered = false"
@@ -18,6 +19,7 @@
           :ref="name"
           loop
           autoplay
+          muted
         >
           <source :src="videoSource" type="video/mp4" />
           Your browser does not support the video tag.
@@ -59,6 +61,14 @@ export default {
     videoSource: {
       type: String,
       required: true,
+    },
+    width: {
+      type: String,
+      default: "250px",
+    },
+    height: {
+      type: String,
+      default: "140px",
     },
   },
   computed: {
