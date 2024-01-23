@@ -73,7 +73,7 @@ export default {
   position: fixed;
   width: 100%;
   max-width: 200px;
-  z-index: 100;
+  z-index: 3;
 
   &:hover {
     z-index: 100000000000000000000;
