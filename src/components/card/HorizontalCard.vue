@@ -74,32 +74,12 @@ export default {
       return this.size === "medium";
     },
   },
-  created() {
-    console.log(this.isMedium); // in ra true hoặc false
-  },
   data() {
     return {
       isHovered: false,
     };
   },
   methods: {
-    // startVideo() {
-    //   this.isHovered = true;
-    //   const video = this.$refs[this.name];
-    //   if (video) {
-    //     // Kiểm tra xem $refs[this.name].video đã được đặt giá trị chưa
-    //     video.currentTime = 0;
-    //     video.play();
-    //   }
-    // },
-    // resetCard() {
-    //   this.isHovered = false;
-    //   const video = this.$refs[this.name];
-    //   if (video) {
-    //     // Kiểm tra xem $refs[this.name].video đã được đặt giá trị chưa
-    //     video.pause();
-    //   }
-    // },
     goToPage() {
       this.$router.push(this.url);
     },

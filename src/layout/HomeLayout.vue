@@ -1,10 +1,10 @@
 <template>
   <div>
     <header-nav @toggleSidebar="isShowSideBar = !isShowSideBar" />
-    <side-bar v-show="isShowSideBar" />
+    <side-bar v-show="isShowSideBar && !isMobile" />
     <div
       class="main-content-container"
-      :class="{ 'show-sidebar': isShowSideBar }"
+      :class="[{ 'show-sidebar': isShowSideBar }, { 'is-mobile': isMobile }]"
     >
       <router-view />
     </div>
@@ -26,10 +26,23 @@ export default {
       isShowSideBar: true,
       data,
       array_test: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      windowWidth: 0,
     };
   },
-  updated() {
-    console.log(this.isShowSideBar, "updated");
+  computed: {
+    isMobile() {
+      return this.windowWidth < 1200;
+    },
+  },
+  mounted() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  handleResize() {
+    this.windowWidth = window.innerWidth;
   },
 };
 </script>
@@ -41,8 +54,12 @@ export default {
   padding: 0 0 20px 0;
 
   &.show-sidebar {
-    width: calc(100% - 68px);
-    margin-left: 60px;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+  &.show-sidebar.is-mobile {
+    width: 100%;
+    margin-left: 0;
   }
 }
 

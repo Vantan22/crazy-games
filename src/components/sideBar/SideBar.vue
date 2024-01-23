@@ -3,7 +3,6 @@
     <div class="sidebar__content">
       <vs-sidebar
         class="padding-top-16"
-        hover-expand
         square
         reduceÍ
         open
@@ -14,7 +13,7 @@
         <vs-sidebar-item
           v-for="item in menu_function"
           :key="item.name"
-          :link="item.link"
+          :to="item.link"
           :id="item.name"
         >
           <template #icon>
@@ -26,7 +25,7 @@
         <vs-sidebar-item
           v-for="item in menu_tag"
           :key="item.name"
-          :link="item.link"
+          :to="item.link"
           :id="item.name"
         >
           <template #icon>
@@ -35,7 +34,7 @@
           {{ item.name }}
         </vs-sidebar-item>
         <div class="divider"></div>
-        <vs-sidebar-item :id="tag.name" :link="tag.link">
+        <vs-sidebar-item :id="tag.name" :to="tag.link">
           <template #icon>
             <div class="icon-block"><i :class="tag.icon"></i></div>
           </template>

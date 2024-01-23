@@ -441,6 +441,7 @@ export default {
 .flex-content {
   display: flex;
   gap: 12px;
+  width: calc(100% + 200px);
 }
 
 .game-view {
@@ -453,6 +454,7 @@ export default {
 
   .wrapper {
     display: flex;
+    padding: 12px;
   }
 
   .content {

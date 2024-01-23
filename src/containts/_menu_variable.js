@@ -68,6 +68,6 @@ const data = [
 
 export const menu_tag = data.map((item) => ({
   name: item,
-  link: `/${item.toLowerCase().replace(/\s+/g, "-")}`,
+  link: `/game`,
   icon: `bx bxs-car`, // Tạo icon dựa vào index (đơn giản ví dụ)
 }));
