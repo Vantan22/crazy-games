@@ -107,7 +107,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "@/assets/style/scss/_config_variables.scss";
 
 .carousel-with-tag {
