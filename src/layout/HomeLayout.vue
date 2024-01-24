@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header-nav @toggleSidebar="isShowSideBar = !isShowSideBar" />
-    <side-bar v-show="isShowSideBar && !isMobile" />
+    <header-nav @toggleSidebar="toggleSidebar" />
+    <side-bar v-show="isShowSideBar" />
     <div
       class="main-content-container"
       :class="[{ 'show-sidebar': isShowSideBar }, { 'is-mobile': isMobile }]"
@@ -14,7 +14,7 @@
 import HeaderNav from "@/components/header/Header.vue";
 import SideBar from "@/components/sideBar/SideBar.vue";
 import { data } from "@/containts/_value_carousel";
-
+import { platformType } from "@/containts/browser_service";
 export default {
   name: "HomeLayout",
   components: {
@@ -23,7 +23,8 @@ export default {
   },
   data() {
     return {
-      isShowSideBar: true,
+      isShowSideBar: platformType !== "mobile",
+      platformType,
       data,
       array_test: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       windowWidth: 0,
@@ -31,7 +32,7 @@ export default {
   },
   computed: {
     isMobile() {
-      return this.windowWidth < 1200;
+      return platformType === "mobile";
     },
   },
   mounted() {
@@ -41,8 +42,15 @@ export default {
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
   },
-  handleResize() {
-    this.windowWidth = window.innerWidth;
+  methods: {
+    handleResize() {
+      console.log("this.windowWidth", window.innerWidth >= 1200);
+      this.windowWidth = window.innerWidth;
+    },
+    toggleSidebar() {
+      console.log("platformType", platformType);
+      this.isShowSideBar = !this.isShowSideBar;
+    },
   },
 };
 </script>

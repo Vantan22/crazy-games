@@ -1,5 +1,8 @@
 <template>
-  <div class="hidden sidebar">
+  <div
+    class="hidden sidebar"
+    :style="{ display: isMobile ? 'none !important' : 'block' }"
+  >
     <div class="sidebar__content">
       <vs-sidebar
         class="padding-top-16"
@@ -51,6 +54,12 @@ import { menu_function, menu_tag } from "@/containts/_menu_variable.js";
 
 export default {
   name: "side-bar",
+  props: {
+    isMobile: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     active: "home",
     ic_clock,
@@ -67,12 +76,13 @@ export default {
 </script>
 <style scoped lang="scss">
 @import "@/assets/style/scss/_config_variables.scss";
+
 .sidebar {
   height: calc(100vh - 60px);
   position: fixed;
   width: 100%;
   max-width: 200px;
-  z-index: 3;
+  z-index: 20;
 
   &:hover {
     z-index: 100000000000000000000;
